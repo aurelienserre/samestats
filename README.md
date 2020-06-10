@@ -4,6 +4,8 @@ The goal here is to propose a new algorithm to transform datasets while keeping 
 Basically, the algo takes a dataset as input, as well as a target shape, and outputs a new dataset that approxiamtely matches the target shape, while having the same statistical proerties as the original one.
 For that, I try to use gradient descent, with a carefully crafted objective function.
 This is work in progress.
+I am doing this for fun.
+Don't expect cutting edge math, or super important work.
 
 ## Background
 It all started with Anscombe publishing in 1973 a paper containing what is now called [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet).
