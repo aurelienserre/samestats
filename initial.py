@@ -2,7 +2,9 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import torch
 import torch.optim as optim
-from modules import Dataset, DistToPoints
+from dataset import Dataset
+from objective_functions import DistToLines2D
+import shapes
 
 
 # torch.set_printoptions(precision=5)
@@ -11,10 +13,13 @@ from modules import Dataset, DistToPoints
 n_samples = 100
 points = torch.empty(n_samples, 2).uniform_(0, 1)
 ds = Dataset(points)
-targets = torch.tensor([[.25, .5], [.75, .5]])
-sod = DistToPoints(targets)
 
-optimizer = optim.SGD(ds.parameters(), lr=1e-1)
+lines = shapes.star()
+
+# sum of distances
+sod = DistToLines2D(lines)
+
+optimizer = optim.SGD(ds.parameters(), lr=1e-2)
 
 
 def iteration(i):
